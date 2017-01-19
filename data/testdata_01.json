@@ -1,0 +1,17 @@
+{
+  "entities": [
+    { "name": "Google" },
+    { "name": "GitHub" },
+    { "name": "Bob" },
+    { "name": "Alice" }
+  ],
+  "events": [
+    ["Bob", "1. call", "Alice"],
+    ["Alice", "2. search for something", "Google"],
+    ["Google", "3. return result", "Alice"],
+    ["Alice", "4. mails", "Bob"],
+    ["Alice", "5. commits to", "GitHub"],
+    ["Google", "kills", "Bob"]
+  ],
+  "start": "Bob"
+}
