@@ -5,13 +5,19 @@
     { "name": "Bob" },
     { "name": "Alice" }
   ],
-  "events": [
+  "actions": [
     ["Bob", "1. call", "Alice"],
     ["Alice", "2. search for something", "Google"],
     ["Google", "3. return result", "Alice"],
     ["Alice", "4. mails", "Bob"],
     ["Alice", "5. commits to", "GitHub"],
     ["Google", "kills", "Bob"]
+  ],
+  "relations": [
+    ["Bob", "knows", "Alice"],
+    ["Alice", "hates", "Bob"],
+    ["Bob", "has account", "GitHub"],
+    ["Alice", "has account", "GitHub"]
   ],
   "start": "Bob"
 }

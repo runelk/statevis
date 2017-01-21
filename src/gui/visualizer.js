@@ -11,7 +11,7 @@ class Visualizer {
 
   setup(data) {
     this.constructNodes(data.entities);
-    this.constructEdges(data.events);
+    this.constructEdges(data.actions);
     this.network = new vis.Network(
       this.target,
       {
@@ -32,11 +32,11 @@ class Visualizer {
     });
   }
 
-  constructEdges(events) {
-    events.forEach(event => {
-      let sub = event[0],
-          act = event[1],
-          obj = event[2];
+  constructEdges(actions) {
+    actions.forEach(action => {
+      let sub = action[0],
+          act = action[1],
+          obj = action[2];
 
       this.edges.push({
         from: this.nodeMap[sub],

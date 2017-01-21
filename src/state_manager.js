@@ -3,12 +3,12 @@ const StateMachine = require('javascript-state-machine');
 class StateManager {
   setup(edges, start) {
     this.start = start;
-    this.makeEvents(edges);
+    this.makeActions(edges);
     this.makeStateMachine();
   }
 
-  makeEvents(edges) {
-    this.events = edges.map(edge => {
+  makeActions(edges) {
+    this.actions = edges.map(edge => {
       return {
         name: edge.label,
         from: '' + edge.from,
@@ -20,7 +20,7 @@ class StateManager {
   makeStateMachine() {
     this.stateMachine = StateMachine.create({
       initial: '' + this.start,
-      events: this.events
+      events: this.actions
     });
   }
 }
