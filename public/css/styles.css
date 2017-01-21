@@ -1,6 +1,42 @@
-#container {
-  max-width: 400px;
-  height: 400px;
+body {
+  background-color: rgb(60, 60, 60);
+}
+
+.container {
   margin: auto;
-  border: 1px solid rgb(20, 20, 20);
+}
+
+.row {
+  display: flex;
+}
+
+.col {
+  flex: 1;
+  padding: 3px;
+  margin: 3px;
+}
+
+.btn {
+  background-color: rgb(200, 180, 180); /* Green */
+  border: none;
+  color: white;
+  padding: 10px 28px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 3px;
+  border: 1px solid rgb(85, 85, 85);
+}
+
+#visualizer {
+  background-color: rgb(220, 220, 220);
+  border: 1px solid rgb(220, 220, 220);
+  border-radius: 3px;
+}
+
+#editor {
+  background-color: rgb(220, 220, 220);
+  border: 1px solid rgb(220, 220, 220);
+  border-radius: 3px;
 }
