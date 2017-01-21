@@ -44,6 +44,10 @@ class Editor {
     let btnReset = this.createControlFormButton('reset');
     this.formControls.appendChild(btnReset);
   }
+
+  setCurrent(name) {
+    this.divGraphInfo.querySelector('#li-current').textContent = name;
+  }
 }
 
 export default Editor;

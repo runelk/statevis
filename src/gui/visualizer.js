@@ -12,7 +12,7 @@ class Visualizer {
   setup(data) {
     this.constructNodes(data.entities);
     this.constructEdges(data.events);
-    this.graph = new vis.Network(
+    this.network = new vis.Network(
       this.target,
       {
         nodes: this.nodes,
@@ -46,6 +46,51 @@ class Visualizer {
     });
   }
 
+  // See http://visjs.org/docs/network/#Events for event overview
+
+  onSelect(callback) {
+    this.network.on('select', callback);
+  }
+
+  onSelectNode(callback) {
+    this.network.on('selectNode', callback);
+  }
+
+  onSelectEdge(callback) {
+    this.network.on('selectEdge', callback);
+  }
+
+  onDeselectNode(callback) {
+    this.network.on('deselectNode', callback);
+  }
+
+  onDeselectEdge(callback) {
+    this.network.on('deselectEdge', callback);
+  }
+
+  onHoverNode(callback) {
+    this.network.on('hoverNode', callback);
+  }
+
+  onHoverEdge(callback) {
+    this.network.on('hoverEdge', callback);
+  }
+
+  onBlurNode(callback) {
+    this.network.on('blurNode', callback);
+  }
+
+  onBlurEdge(callback) {
+    this.network.on('blurEdge', callback);
+  }
+
+  onClick(callback) {
+    this.network.on('click', callback);
+  }
+
+  onDoubleClick(callback) {
+    this.network.on('doubleClick', callback);
+  }
 }
 
 export default Visualizer;
