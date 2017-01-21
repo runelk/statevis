@@ -2,8 +2,7 @@ const StateMachine = require('javascript-state-machine');
 const vis = require('vis');
 const request = require('superagent');
 
-import Editor from './editor';
-import Visualizer from './visualizer';
+import { Editor, Visualizer } from './gui';
 import StateManager from './state_manager';
 import Controller from './controller';
 import { fromUrl } from './importer';
