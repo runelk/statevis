@@ -6,6 +6,7 @@ class StoreViewEntry {
     this.inputRel = document.createElement('input');
     this.inputObj = document.createElement('input');
 
+    this.node.classList.add('triple');
     this.inputSub.value = sub;
     this.inputRel.value = rel;
     this.inputObj.value = obj;

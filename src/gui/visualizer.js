@@ -18,7 +18,32 @@ class Visualizer {
         nodes: this.nodes,
         edges: this.edges
       },
-      {}
+      {
+        nodes: {
+          color: {
+            background: 'rgb(50, 50, 50)',
+            border: 'rgb(255, 255, 255)',
+            highlight: {
+              background: 'rgb(50, 50, 50)',
+              border: 'rgb(255, 255, 255)'
+            }
+          },
+          font: {
+            color: 'rgb(255, 255, 255)'
+          }
+        },
+        edges: {
+          arrows: {
+            to: {
+              scaleFactor: 0.5
+            }
+          },
+          font: {
+            color: 'rgb(255, 255, 255)',
+            strokeWidth: 0
+          }
+        }
+      }
     );
   }
 

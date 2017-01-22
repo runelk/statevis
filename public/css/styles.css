@@ -1,5 +1,15 @@
 body {
-  background-color: rgb(60, 60, 60);
+  background-color: rgb(40, 40, 40);
+  font-family: monospace;
+}
+
+fieldset {
+  border-radius: 4px;
+  margin: 4px;
+}
+
+legend {
+  color: rgb(255, 255, 255);
 }
 
 .container {
@@ -16,8 +26,12 @@ body {
   margin: 3px;
 }
 
+ul.graph-info-details {
+  color: rgb(255, 255, 255);
+}
+
 .btn {
-  background-color: rgb(200, 180, 180); /* Green */
+  background-color: rgba(180, 180, 180, 0.8);
   border: none;
   color: white;
   padding: 10px 28px;
@@ -30,13 +44,30 @@ body {
 }
 
 #visualizer {
-  background-color: rgb(220, 220, 220);
+  background-color: rgba(40, 40, 40, 0.8);
+  border: 1px solid rgb(180, 180, 180);
+  border-radius: 3px;
+  height: 40em;
+}
+
+#editor {
+  background-color: rgba(40, 40, 40, 0.8);
   border: 1px solid rgb(220, 220, 220);
   border-radius: 3px;
 }
 
-#editor {
-  background-color: rgb(220, 220, 220);
-  border: 1px solid rgb(220, 220, 220);
-  border-radius: 3px;
+#controls {
+  background-color: rgba(40, 40, 40, 0.5);
+}
+
+span.triple {
+}
+
+span.triple input {
+  background-color: rgba(60, 60, 60, 0.8);
+  color: rgb(255, 255, 255);
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(80, 80, 80);
+  padding: 2px;
 }
