@@ -22,7 +22,7 @@ class Editor {
     let ulDetails = document.createElement('ul');
     ulDetails.classList.add('graph-info-details');
 
-    ['li-current', 'li-next', 'li-prev'].forEach(id => {
+    ['li-current', 'li-edges'].forEach(id => {
       let li = document.createElement('li');
       li.id = id;
       ulDetails.appendChild(li);
@@ -47,6 +47,19 @@ class Editor {
 
   setCurrent(name) {
     this.divGraphInfo.querySelector('#li-current').textContent = name;
+  }
+
+  setEdgeList(edges) {
+    let liEdges = this.divGraphInfo.querySelector('#li-edges');
+    liEdges.innerHTML = '';
+    let ulEdgeList = document.createElement('ul');
+    ulEdgeList.classList.add('edge-list');
+    edges.forEach(edge => {
+      let li = document.createElement('li');
+      li.textContent = edge;
+      ulEdgeList.appendChild(li);
+    });
+    liEdges.appendChild(ulEdgeList);
   }
 }
 

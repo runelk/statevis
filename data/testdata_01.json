@@ -6,18 +6,19 @@
     { "name": "Alice" }
   ],
   "actions": [
-    ["Bob", "1. call", "Alice"],
-    ["Alice", "2. search for something", "Google"],
-    ["Google", "3. return result", "Alice"],
-    ["Alice", "4. mails", "Bob"],
-    ["Alice", "5. commits to", "GitHub"],
+    ["Bob", "calls", "Alice"],
+    ["Alice", "uses", "Google"],
+    ["Google", "returns result to", "Alice"],
+    ["Alice", "mails", "Bob"],
+    ["Alice", "commits to", "GitHub"],
     ["Google", "kills", "Bob"]
   ],
   "relations": [
     ["Bob", "knows", "Alice"],
     ["Alice", "hates", "Bob"],
     ["Bob", "has account", "GitHub"],
-    ["Alice", "has account", "GitHub"]
+    ["Alice", "has account", "GitHub"],
+    ["Google", "hates", "Bob"]
   ],
   "start": "Bob"
 }
