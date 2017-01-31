@@ -4,8 +4,19 @@ import Controller from './controller';
 import Store from './store';
 import { fromUrl } from './importer';
 
+const Dispatcher = require('flux').Dispatcher;
+const MicroEvent = require('microevent');
 
 fromUrl('/testdata', data => {
+  // console.log(Dispatcher);
+  // console.log(MicroEvent);
+
+  MicroEvent.mixin(Editor);
+  MicroEvent.mixin(Visualizer);
+  MicroEvent.mixin(StoreView);
+  MicroEvent.mixin(Controller);
+  MicroEvent.mixin(Store);
+
   const store = new Store();
   const visualizer = new Visualizer('#visualizer');
   const editor = new Editor('#editor');
