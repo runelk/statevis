@@ -14,9 +14,8 @@ fromUrl('/testdata', data => {
   const controller = new Controller();
 
   store.setup(data);
-  visualizer.setup(data);
+  visualizer.setup(store);
   editor.setup();
-  state_manager.setup(visualizer.edges, data.start);
   store_view.setup(store);
   controller.setup(visualizer, editor, state_manager, store, store_view);
 

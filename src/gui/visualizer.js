@@ -10,8 +10,8 @@ class Visualizer {
   }
 
   setup(data) {
-    this.constructNodes(data.entities);
-    this.constructEdges(data.actions);
+    this.constructNodes(data.relations);
+    this.constructEdges(data.relations);
     this.network = new vis.Network(
       this.target,
       {
@@ -47,26 +47,29 @@ class Visualizer {
     );
   }
 
-  constructNodes(entities) {
-    entities.forEach((entity, index) => {
-      this.nodeMap[entity.name] = index;
+  constructNodes(relations) {
+    let uniqueNodes = Array.from(
+      new Set(
+        relations
+          .map(rel => { return [rel[0], rel[2]]; })
+          .reduce((a, b) => { return a.concat(b); }))
+    );
+
+    uniqueNodes.sort().forEach((node, index) => {
+      this.nodeMap[node] = index;
       this.nodes.push({
         id: index,
-        label: entity.name
+        label: node
       });
     });
   }
 
-  constructEdges(actions) {
-    actions.forEach(action => {
-      let sub = action[0],
-          act = action[1],
-          obj = action[2];
-
+  constructEdges(relations) {
+    relations.forEach(relation => {
       this.edges.push({
-        from: this.nodeMap[sub],
-        to: this.nodeMap[obj],
-        label: act
+        from: this.nodeMap[relation[0]],
+        label: relation[1],
+        to: this.nodeMap[relation[2]]
       });
     });
   }

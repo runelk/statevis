@@ -1,8 +1,7 @@
 class Controller {
-  setup(visualizer, editor, state_manager, store, store_view) {
+  setup(visualizer, editor, store, store_view) {
     this.visualizer = visualizer;
     this.editor = editor;
-    this.state_manager = state_manager;
     this.store = store;
     this.store_view = store_view;
     this.setupEvents();
