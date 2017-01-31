@@ -35,9 +35,14 @@ class StoreView {
 
     this.divStoreView.classList.add('store-view');
 
-    let legendRelations = document.createElement('legend');
-    legendRelations.textContent = 'Relations';
-    this.fieldsetRelations.appendChild(legendRelations);
+    let inputLoad = document.createElement('input');
+    inputLoad.id = 'input-load';
+    inputLoad.setAttribute('type', 'file');
+    this.form.appendChild(inputLoad);
+
+    let legend = document.createElement('legend');
+    legend.textContent = 'Relations';
+    this.fieldsetRelations.appendChild(legend);
 
     store.relations.forEach(rel => {
       this.relations.push(new StoreViewEntry(rel[0], rel[1], rel[2]));
