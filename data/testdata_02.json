@@ -1,0 +1,8 @@
+{
+  "relations": [
+    ["Foo", "does", "Bar"],
+    ["Bar", "is", "Foo"],
+    ["Baz", "finds", "Foo"]
+  ],
+  "start": "Foo"
+}

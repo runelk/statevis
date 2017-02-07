@@ -10,6 +10,7 @@ class Visualizer {
   }
 
   setup(data) {
+    this.target.innerHTML = '';
     this.constructNodes(data.relations);
     this.constructEdges(data.relations);
     this.network = new vis.Network(

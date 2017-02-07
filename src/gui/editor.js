@@ -5,6 +5,7 @@ class Editor {
   }
 
   setup() {
+    this.target.innerHTML = '';
     this.divGraphInfo = document.createElement('div');
     this.formControls = document.createElement('form');
 

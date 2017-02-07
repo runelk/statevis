@@ -1,3 +1,4 @@
+const MicroEvent = require('microevent');
 
 class StoreViewEntry {
   constructor(sub, rel, obj) {
@@ -29,6 +30,7 @@ class StoreView {
   }
 
   setup(store) {
+    this.target.innerHTML = '';
     this.divStoreView = document.createElement('div');
     this.form = document.createElement('form');
     this.fieldsetRelations = document.createElement('fieldset');
@@ -38,6 +40,7 @@ class StoreView {
     let inputLoad = document.createElement('input');
     inputLoad.id = 'input-load';
     inputLoad.setAttribute('type', 'file');
+    inputLoad.addEventListener("change", this.onLoad.bind(this), false);
     this.form.appendChild(inputLoad);
 
     let legend = document.createElement('legend');
@@ -56,6 +59,14 @@ class StoreView {
     this.divStoreView.appendChild(this.form);
     this.target.appendChild(this.divStoreView);
   }
+
+  onLoad(evt) {
+    this.trigger('load', evt.target.files);
+  }
+
 }
+
+MicroEvent.mixin(StoreView);
+
 
 export default StoreView;
