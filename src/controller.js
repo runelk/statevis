@@ -38,17 +38,10 @@ class Controller {
     });
 
     this.store.bind('setup', () => {
-      console.log('controller store');
-      console.log(this.store);
-      this.visualizer = new Visualizer('#visualizer');
-      this.editor = new Editor('#editor');
-      this.store_view = new StoreView('#store-view');
-
-      // TODO update everything properly
-
-      this.visualizer.setup(this.store);
+      this.visualizer.setup();
       this.editor.setup();
-      this.store_view.setup(this.store);
+      this.store_view.setData(this.store);
+      this.visualizer.setData(this.store);
     });
   }
 }

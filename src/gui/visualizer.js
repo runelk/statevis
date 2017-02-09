@@ -9,15 +9,13 @@ class Visualizer {
     this.nodeMap = {};
   }
 
-  setup(data) {
+  setup() {
     this.target.innerHTML = '';
-    this.constructNodes(data.relations);
-    this.constructEdges(data.relations);
     this.network = new vis.Network(
       this.target,
       {
-        nodes: this.nodes,
-        edges: this.edges
+        nodes: [],
+        edges: []
       },
       {
         nodes: {
@@ -48,7 +46,14 @@ class Visualizer {
     );
   }
 
+  setData(store) {
+    this.constructNodes(store.relations);
+    this.constructEdges(store.relations);
+    this.network.setData({nodes: this.nodes, edges: this.edges});
+  }
+
   constructNodes(relations) {
+    this.nodes = [];
     let uniqueNodes = Array.from(
       new Set(
         relations
@@ -66,6 +71,7 @@ class Visualizer {
   }
 
   constructEdges(relations) {
+    this.edges = [];
     relations.forEach(relation => {
       this.edges.push({
         from: this.nodeMap[relation[0]],
