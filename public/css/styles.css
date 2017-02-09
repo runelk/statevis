@@ -60,14 +60,12 @@ ul.graph-info-details {
   background-color: rgba(40, 40, 40, 0.5);
 }
 
-span.triple {
-}
-
-span.triple input {
+input {
   background-color: rgba(60, 60, 60, 0.8);
   color: rgb(255, 255, 255);
   border-style: solid;
   border-width: 1px;
   border-color: rgb(80, 80, 80);
   padding: 2px;
+  width: auto;
 }

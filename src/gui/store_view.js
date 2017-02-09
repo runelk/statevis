@@ -1,4 +1,5 @@
 const MicroEvent = require('microevent');
+const template = require('../../templates/test.mustache');
 
 class StoreViewEntry {
   constructor(sub, rel, obj) {
@@ -38,40 +39,14 @@ class StoreView {
   }
 
   setData(store) {
-    this.relations = [];
-    store.relations.forEach(rel => {
-      this.relations.push(new StoreViewEntry(rel[0], rel[1], rel[2]));
-    });
+    this.relations = store.relations;
     this.updateView();
   }
 
   updateView() {
-    this.target.innerHTML = '';
-    let divStoreView = document.createElement('div'),
-        form = document.createElement('form'),
-        fieldsetRelations = document.createElement('fieldset'),
-        inputLoad = document.createElement('input'),
-        legend = document.createElement('legend');
-
-    divStoreView.classList.add('store-view');
-
-    inputLoad.id = 'input-load';
-    inputLoad.setAttribute('type', 'file');
-    inputLoad.addEventListener("change", this.onLoad.bind(this), false);
-
-    legend.textContent = 'Relations';
-
-    this.relations.forEach(rel => {
-      fieldsetRelations.appendChild(rel.getNode());
-    });
-
-    fieldsetRelations.appendChild(legend);
-    form.appendChild(inputLoad);
-    form.appendChild(fieldsetRelations);
-    divStoreView.appendChild(form);
-    this.target.appendChild(divStoreView);
+    this.target.innerHTML = template({ relations: this.relations });
+    document.querySelector("#input-load").addEventListener("change", this.onLoad.bind(this), false);
   }
-
 }
 
 MicroEvent.mixin(StoreView);

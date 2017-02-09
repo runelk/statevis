@@ -4,5 +4,11 @@ module.exports = {
     filename: 'bundle.js',
     path: './public/js'
   },
-  devtool: 'source-map'
+  devtool: 'source-map',
+  module: {
+    rules: [{
+      test: /.mustache$/,
+      use: 'mustache-loader'
+    }]
+  }
 };
