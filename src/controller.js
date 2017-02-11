@@ -43,7 +43,7 @@ class Controller {
       reader.readAsText(files[0]);
     });
 
-    this._store.bind('setup', () => {
+    this._store.bind('store-setup-done', () => {
       this._graph_view.updateView(this._store);
       this._store_view.updateView(this._store);
     });

@@ -49,10 +49,18 @@ div.relation-list {
   height: 40em;
 }
 
+div.entity-list {
+  height: 40em;
+}
+
 div.relations {
   border: 1px solid rgb(200, 200, 200);
   border-radius: 3px;
-  width: 50%;
+}
+
+div.entities {
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 3px;
 }
 
 table.relations {

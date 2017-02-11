@@ -11,7 +11,12 @@ class StoreView {
   }
 
   updateView(store) {
-    this.target.innerHTML = template({ relations: store.relations });
+    console.log("NOWNOWNOW");
+    console.log(store);
+    this.target.innerHTML = template({
+      relations: store.relations,
+      entities: store.entities
+    });
     document.querySelector("#input-load").addEventListener("change", this.onLoad.bind(this), false);
   }
 }
