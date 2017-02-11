@@ -34,6 +34,13 @@ class GraphView {
           }
         }
     };
+    this.setup();
+  }
+
+  updateView(store) {
+    this.constructNodes(store.relations);
+    this.constructEdges(store.relations);
+    this.network.setData({nodes: this.nodes, edges: this.edges});
   }
 
   setup() {
@@ -46,12 +53,6 @@ class GraphView {
       },
       this.graphConfig
     );
-  }
-
-  setData(store) {
-    this.constructNodes(store.relations);
-    this.constructEdges(store.relations);
-    this.network.setData({nodes: this.nodes, edges: this.edges});
   }
 
   constructNodes(relations) {

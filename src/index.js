@@ -1,5 +1,4 @@
 import { GraphView, StoreView } from './gui';
-import { StoreView } from './gui';
 import Controller from './controller';
 import Store from './store';
 import { fromUrl } from './importer';
@@ -13,9 +12,11 @@ store.setup({
   relations: [[]],
   start: null
 });
-graph_view.setup(store);
-store_view.setup(store);
 
-controller.setup(graph_view, store, store_view);
+controller.store = store;
+controller.graph_view = graph_view;
+controller.store_view = store_view;
+controller.initializeViews();
+// controller.setupEvents();
 
 window.statevis = controller;
