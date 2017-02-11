@@ -1,15 +1,19 @@
-body {
+html, body {
   background-color: rgb(40, 40, 40);
+  font-family: monospace;
+  color: rgb(255, 255, 255);
   font-family: monospace;
 }
 
-fieldset {
-  border-radius: 4px;
-  margin: 4px;
+input {
+  background-color: rgba(60, 60, 60, 0.8);
+  padding: 2px;
+  width: auto;
 }
 
-legend {
-  color: rgb(255, 255, 255);
+.borders {
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 3px;
 }
 
 .container {
@@ -26,46 +30,24 @@ legend {
   margin: 3px;
 }
 
-ul.graph-info-details {
-  color: rgb(255, 255, 255);
+div.relations {
+  height: 30em;
+  overflow: auto;
 }
 
 .btn {
   background-color: rgba(180, 180, 180, 0.8);
-  border: none;
   color: white;
   padding: 10px 28px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  border-radius: 3px;
-  border: 1px solid rgb(85, 85, 85);
 }
 
 #visualizer {
-  background-color: rgba(40, 40, 40, 0.8);
-  border: 1px solid rgb(180, 180, 180);
-  border-radius: 3px;
   height: 40em;
 }
 
-#editor {
-  background-color: rgba(40, 40, 40, 0.8);
-  border: 1px solid rgb(220, 220, 220);
-  border-radius: 3px;
-}
-
 #controls {
-  background-color: rgba(40, 40, 40, 0.5);
-}
-
-input {
-  background-color: rgba(60, 60, 60, 0.8);
-  color: rgb(255, 255, 255);
-  border-style: solid;
-  border-width: 1px;
-  border-color: rgb(80, 80, 80);
-  padding: 2px;
-  width: auto;
 }
