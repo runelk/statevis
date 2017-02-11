@@ -5,15 +5,28 @@ html, body {
   font-family: monospace;
 }
 
+h2 {
+  position: relative;
+  top: -35px;
+  left: 10px;
+  background-color: rgb(40, 40, 40);
+  padding: 5px;
+  display: table;
+}
+
+h3 {
+  position: relative;
+  top: -15px;
+  left: 5px;
+  background-color: rgb(40, 40, 40);
+  padding: 5px;
+  display: table;
+}
+
 input {
   background-color: rgba(60, 60, 60, 0.8);
   padding: 2px;
   width: auto;
-}
-
-.borders {
-  border: 1px solid rgb(200, 200, 200);
-  border-radius: 3px;
 }
 
 .container {
@@ -31,8 +44,26 @@ input {
 }
 
 div.relations {
-  height: 30em;
+  height: 50em;
   overflow: auto;
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 3px;
+  width: 50%;
+}
+
+table.relations {
+  width: 100%;
+}
+
+tr.triple {
+  width: 100%;
+}
+
+tr.triple td input {
+  background-color: rgb(40, 40, 40);
+  color: rgb(255, 255, 255);
+  display: table-cell;
+  width: 100%;
 }
 
 .btn {
@@ -45,9 +76,21 @@ div.relations {
   font-size: 16px;
 }
 
-#visualizer {
-  height: 40em;
+#store-view {
+  height: 60em;
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 3px;
 }
 
-#controls {
+#graph-view {
+  height: 60em;
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 3px;
+}
+
+div.graph {
+  height: 50em;
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 3px;
+  overflow: auto;
 }

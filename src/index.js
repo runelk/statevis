@@ -1,14 +1,11 @@
-import { Visualizer, StoreView } from './gui';
-import StateManager from './state_manager';
+import { GraphView, StoreView } from './gui';
+import { StoreView } from './gui';
 import Controller from './controller';
 import Store from './store';
 import { fromUrl } from './importer';
 
-const Dispatcher = require('flux').Dispatcher;
-const MicroEvent = require('microevent');
-
 const store = new Store();
-const visualizer = new Visualizer('#visualizer');
+const graph_view = new GraphView('#graph-view');
 const store_view = new StoreView('#store-view');
 const controller = new Controller();
 
@@ -16,9 +13,9 @@ store.setup({
   relations: [[]],
   start: null
 });
-visualizer.setup(store);
+graph_view.setup(store);
 store_view.setup(store);
 
-controller.setup(visualizer, store, store_view);
+controller.setup(graph_view, store, store_view);
 
 window.statevis = controller;

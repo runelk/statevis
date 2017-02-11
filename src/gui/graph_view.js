@@ -1,23 +1,14 @@
 const vis = require('vis');
+const template = require('./graph_view.mustache');
 
-class Visualizer {
+class GraphView {
 
   constructor(targetId) {
     this.target = document.querySelector(targetId);
     this.nodes = [];
     this.edges = [];
     this.nodeMap = {};
-  }
-
-  setup() {
-    this.target.innerHTML = '';
-    this.network = new vis.Network(
-      this.target,
-      {
-        nodes: [],
-        edges: []
-      },
-      {
+    this.graphConfig = {
         nodes: {
           color: {
             background: 'rgb(50, 50, 50)',
@@ -42,7 +33,18 @@ class Visualizer {
             strokeWidth: 0
           }
         }
-      }
+    };
+  }
+
+  setup() {
+    this.target.innerHTML = template();
+    this.network = new vis.Network(
+      this.target.querySelector('div.graph'),
+      {
+        nodes: [],
+        edges: []
+      },
+      this.graphConfig
     );
   }
 
@@ -128,4 +130,4 @@ class Visualizer {
   }
 }
 
-export default Visualizer;
+export default GraphView;

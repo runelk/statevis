@@ -1,4 +1,4 @@
-import Visualizer from './visualizer';
+import GraphView from './graph_view';
 import StoreView from './store_view';
 
-export { Visualizer, StoreView };
+export { GraphView, StoreView };
