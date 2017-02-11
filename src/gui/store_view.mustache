@@ -1,9 +1,10 @@
-<div class="store-view">
+<div class="store-view bordered">
   <form action="">
+    <h2>Relations</h2>
+
     <input id="input-load" name="" type="file" value=""/>
-    <fieldset>
-      <legend>Relations</legend>
-      <table>
+    <div class="relations">
+      <table class="relations">
         {{#relations}}
           <tr class="triple">
             <td><input type="text" value="{{0}}"></td>
@@ -12,6 +13,6 @@
           </tr>
         {{/relations}}
       </table>
-    </fieldset>
+    </div>
   </form>
 </div>

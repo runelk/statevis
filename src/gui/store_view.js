@@ -1,28 +1,5 @@
 const MicroEvent = require('microevent');
-const template = require('../../templates/test.mustache');
-
-class StoreViewEntry {
-  constructor(sub, rel, obj) {
-    this.node = document.createElement('span');
-    this.inputSub = document.createElement('input');
-    this.inputRel = document.createElement('input');
-    this.inputObj = document.createElement('input');
-
-    this.node.classList.add('triple');
-    this.inputSub.value = sub;
-    this.inputRel.value = rel;
-    this.inputObj.value = obj;
-
-    this.node.appendChild(this.inputSub);
-    this.node.appendChild(this.inputRel);
-    this.node.appendChild(this.inputObj);
-  }
-
-  getNode() {
-    return this.node;
-  }
-}
-
+const template = require('./store_view.mustache');
 
 class StoreView {
   constructor(targetId) {
