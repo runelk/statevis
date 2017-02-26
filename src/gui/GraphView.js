@@ -1,6 +1,6 @@
-import MicroEvent from 'MicroEvent';
+import MicroEvent from 'microevent';
 const vis = require('vis');
-const template = require('./graph_view.mustache');
+const template = require('./GraphView.mustache');
 
 class GraphView {
 

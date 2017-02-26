@@ -1,4 +1,4 @@
-const MicroEvent = require('microevent');
+import MicroEvent from 'microevent';
 
 import { ActionTypes } from './constants';
 

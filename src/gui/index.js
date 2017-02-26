@@ -1,4 +1,4 @@
-import GraphView from './graph_view';
-import StoreView from './store_view';
+import GraphView from './GraphView';
+import StoreView from './StoreView';
 
 export { GraphView, StoreView };

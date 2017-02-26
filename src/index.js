@@ -1,6 +1,6 @@
 import { GraphView, StoreView } from './gui';
-import Controller from './controller';
-import Store from './store';
+import Controller from './Controller';
+import Store from './Store';
 import { fromUrl } from './importer';
 
 import { ActionTypes } from './constants';

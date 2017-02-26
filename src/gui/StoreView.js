@@ -1,7 +1,6 @@
-const MicroEvent = require('microevent');
-const template = require('./store_view.mustache');
+import MicroEvent from 'microevent';
 import { ActionTypes } from '../constants';
-import TripleView from './TripleView.js';
+const template = require('./StoreView.mustache');
 
 // TODO use holmes for filtering (https://haroen.me/holmes/)
 
