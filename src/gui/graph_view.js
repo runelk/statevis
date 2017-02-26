@@ -1,3 +1,4 @@
+import MicroEvent from 'MicroEvent';
 const vis = require('vis');
 const template = require('./graph_view.mustache');
 
@@ -9,30 +10,52 @@ class GraphView {
     this.edges = [];
     this.nodeMap = {};
     this.graphConfig = {
-        nodes: {
-          color: {
+      nodes: {
+        color: {
+          background: 'rgb(50, 50, 50)',
+          border: 'rgb(255, 255, 255)',
+          highlight: {
             background: 'rgb(50, 50, 50)',
-            border: 'rgb(255, 255, 255)',
-            highlight: {
-              background: 'rgb(50, 50, 50)',
-              border: 'rgb(255, 255, 255)'
-            }
-          },
-          font: {
-            color: 'rgb(255, 255, 255)'
+            border: 'rgb(255, 255, 255)'
           }
         },
-        edges: {
-          arrows: {
-            to: {
-              scaleFactor: 0.5
-            }
-          },
-          font: {
-            color: 'rgb(255, 255, 255)',
-            strokeWidth: 0
-          }
+        font: {
+          color: 'rgb(255, 255, 255)'
         }
+      },
+      edges: {
+        arrows: {
+          to: {
+            scaleFactor: 0.5
+          }
+        },
+        font: {
+          color: 'rgb(255, 255, 255)',
+          strokeWidth: 0
+        }
+      },
+      physics: {
+        // solver: 'forceAtlas2Based',
+        solver: 'barnesHut'
+        // barnesHut: {
+        //   avoidOverlap: 0.9
+        // },
+        // repulsion: {
+        //   nodeDistance: 300,
+        //   springLength: 300,
+        //   springConstant: 0.15
+        // },
+        // forceAtlas2Based: {
+        //   avoidOverlap: 1,
+        //   centralGravity: 0.01
+        // }
+      }
+      // ,
+      // layout: {
+      //   hierarchical: {
+      //     enabled: true
+      //   }
+      // }
     };
     this.setup();
   }
@@ -85,7 +108,7 @@ class GraphView {
   }
 
   // See http://visjs.org/docs/network/#Events for event overview
-
+  // TODO Replace callback with action triggers
   onSelect(callback) {
     this.network.on('select', callback);
   }
@@ -130,5 +153,7 @@ class GraphView {
     this.network.on('doubleClick', callback);
   }
 }
+
+MicroEvent.mixin(StoreView);
 
 export default GraphView;

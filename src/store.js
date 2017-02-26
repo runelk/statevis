@@ -1,5 +1,7 @@
 const MicroEvent = require('microevent');
 
+import { ActionTypes } from './constants';
+
 class Store {
    setup(data) {
      this.relations = data.relations;
@@ -13,7 +15,7 @@ class Store {
      ).sort();
 
      this.start = data.start;
-     this.trigger('store-setup-done');
+     this.trigger(ActionTypes.STORE_SETUP_DONE);
   }
 }
 

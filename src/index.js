@@ -3,6 +3,8 @@ import Controller from './controller';
 import Store from './store';
 import { fromUrl } from './importer';
 
+import { ActionTypes } from './constants';
+
 const store = new Store();
 const graph_view = new GraphView('#graph-view');
 const store_view = new StoreView('#store-view');
@@ -20,3 +22,5 @@ controller.initializeViews();
 // controller.setupEvents();
 
 window.statevis = controller;
+
+// TODO check out http://js.cytoscape.org/ , http://sigmajs.org/ , https://github.com/Linkurious/linkurious.js
