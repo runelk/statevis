@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "datatables.net": "^1.10.13",
     "express": "^4.14.0",
     "flux": "^3.1.2",
     "javascript-state-machine": "^2.4.0",

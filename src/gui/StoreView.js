@@ -1,5 +1,7 @@
 import MicroEvent from 'microevent';
 import { ActionTypes } from '../constants';
+import EntityList from './EntityList';
+import RelationTable from './RelationTable';
 const template = require('./StoreView.mustache');
 
 // TODO use holmes for filtering (https://haroen.me/holmes/)
@@ -7,6 +9,9 @@ const template = require('./StoreView.mustache');
 class StoreView {
   constructor(targetId) {
     this.target = document.querySelector(targetId);
+    this.target.innerHTML = template();
+    this.relationTable = new RelationTable('div.relations');
+    this.entityList = new EntityList('div.entities');
   }
 
   onLoad(evt) {
@@ -14,14 +19,9 @@ class StoreView {
   }
 
   updateView(store) {
-    this.target.innerHTML = template({
-      // relations: store.relations,
-      entities: store.entities
-    });
+    this.relationTable.render(store);
+    this.entityList.render(store);
     document.querySelector("#input-load").addEventListener("change", this.onLoad.bind(this), false);
-    store.relations.forEach(rel => {
-
-    });
     this.addEventListeners();
   }
 

@@ -154,6 +154,6 @@ class GraphView {
   }
 }
 
-MicroEvent.mixin(StoreView);
+MicroEvent.mixin(GraphView);
 
 export default GraphView;
