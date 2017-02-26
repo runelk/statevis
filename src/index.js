@@ -1,17 +1,15 @@
-import { GraphView, StoreView } from './gui';
+import { Main } from './gui';
 import Controller from './Controller';
 import Store from './Store';
 
 import { ActionTypes } from './constants';
 
 const store = new Store();
-const graph_view = new GraphView('#graph-view');
-const store_view = new StoreView('#store-view');
+const main = new Main('#container');
 const controller = new Controller();
 
 controller.store = store;
-controller.graph_view = graph_view;
-controller.store_view = store_view;
+controller.main = main;
 controller.initialize();
 
 window.statevis = controller;

@@ -9,12 +9,16 @@ class Controller {
     this._store = s;
   }
 
+  set main(main) {
+    this._main = main;
+  }
+
   set graph_view(gv) {
-    this._graph_view = gv;
+    this._main.graphView = gv;
   }
 
   set store_view(sv) {
-    this._store_view = sv;
+    this._main.storeView = sv;
   }
 
   initialize() {
@@ -30,8 +34,7 @@ class Controller {
   }
 
   initializeViews() {
-    this._graph_view.updateView(this._store);
-    this._store_view.updateView(this._store);
+    this._main.updateView(this._store);
     this.setupEvents();
   }
 
@@ -40,20 +43,22 @@ class Controller {
   }
 
   setupEvents() {
-    this._graph_view.onSelectNode(params => {
+    console.log(this._main);
+
+    this._main.graphView.onSelectNode(params => {
       console.log("selectNode");
       console.log(params);
       let node_num = params.nodes[0],
           edges = params.edges,
-          node = this._graph_view.nodes[node_num];
+          node = this._main.graphView.nodes[node_num];
     });
 
-    this._graph_view.onSelectEdge(params => {
+    this._main.graphView.onSelectEdge(params => {
       console.log("selectEdge");
       console.log(params);
     });
 
-    this._store_view.bind(ActionTypes.STORE_VIEW_LOAD, files => {
+    this._main.storeView.bind(ActionTypes.STORE_VIEW_LOAD, files => {
       // TODO support more than one file
       let reader = new FileReader();
       reader.onload = evt => {
@@ -64,23 +69,23 @@ class Controller {
     });
 
     this._store.bind(ActionTypes.STORE_SETUP_DONE, () => {
-      this._graph_view.updateView(this._store);
-      this._store_view.updateView(this._store);
+      this._main.graphView.updateView(this._store);
+      this._main.storeView.updateView(this._store);
     });
 
-    this._store_view.bind(ActionTypes.ATOM_INPUT, (target) => {
+    this._main.storeView.bind(ActionTypes.ATOM_INPUT, (target) => {
       console.log(ActionTypes.ATOM_INPUT);
       console.log(target);
     });
 
-    this._store_view.bind(ActionTypes.ATOM_CHANGE, (target) => {
+    this._main.storeView.bind(ActionTypes.ATOM_CHANGE, (target) => {
       console.log(ActionTypes.ATOM_CHANGE);
     });
 
-    this._store_view.relationTable.bind(ActionTypes.STORE_VIEW_FILTER, (data) => {
+    this._main.storeView.relationTable.bind(ActionTypes.STORE_VIEW_FILTER, (data) => {
       console.log(ActionTypes.STORE_VIEW_FILTER);
       console.log(data);
-      this._graph_view.updateView(data);
+      this._main.graphView.updateView(data);
     });
   }
 }
