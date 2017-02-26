@@ -1,4 +1,5 @@
 import MicroEvent from 'microevent';
+import { ActionTypes } from '../constants';
 const template = require('./RelationTable.mustache');
 
 const $ = require( 'jquery' );
@@ -16,11 +17,17 @@ class RelationTable {
         { title: 'Rel' },
         { title: 'Obj' }
       ],
-      data: [
-        ["foo", "eats", "bar"],
-        ["bar", "likes", "chocolate"],
-        ["baz", "eats", "chocolate"]
-      ]
+      data: [],
+      scrollY: '30em',
+      paging: false
+    });
+
+    console.log("DataTables: " + this.table);
+
+    this.table.on('search.dt', () => {
+      this.trigger(ActionTypes.STORE_VIEW_FILTER, {
+        relations: Array.from(this.table.rows({filter: 'applied'}).data())
+      });
     });
   }
 
@@ -30,5 +37,7 @@ class RelationTable {
     this.table.draw();
   }
 }
+
+MicroEvent.mixin(RelationTable);
 
 export default RelationTable;

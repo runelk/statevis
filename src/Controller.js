@@ -1,5 +1,7 @@
 import MicroEvent from 'microevent';
 import { ActionTypes } from './constants';
+import { fromUrl } from './importer';
+
 
 class Controller {
 
@@ -15,10 +17,26 @@ class Controller {
     this._store_view = sv;
   }
 
+  initialize() {
+    // TODO remove the need for this
+    this.loadData({
+      relations: [["", "", ""]],
+      start: ""
+    });
+    this.initializeViews();
+    fromUrl('/testdata', data => {
+      this.loadData(data);
+    });
+  }
+
   initializeViews() {
     this._graph_view.updateView(this._store);
     this._store_view.updateView(this._store);
     this.setupEvents();
+  }
+
+  loadData(data) {
+    this._store.setup(data);
   }
 
   setupEvents() {
@@ -40,7 +58,7 @@ class Controller {
       let reader = new FileReader();
       reader.onload = evt => {
         let data = JSON.parse(evt.target.result);
-        this._store.setup(data);
+        this.loadData(data);
       };
       reader.readAsText(files[0]);
     });
@@ -57,6 +75,12 @@ class Controller {
 
     this._store_view.bind(ActionTypes.ATOM_CHANGE, (target) => {
       console.log(ActionTypes.ATOM_CHANGE);
+    });
+
+    this._store_view.relationTable.bind(ActionTypes.STORE_VIEW_FILTER, (data) => {
+      console.log(ActionTypes.STORE_VIEW_FILTER);
+      console.log(data);
+      this._graph_view.updateView(data);
     });
   }
 }

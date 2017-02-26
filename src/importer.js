@@ -2,7 +2,7 @@ const request = require('superagent');
 
 const fromUrl = (url, callback) => {
   request
-    .get('/testdata')
+    .get(url)
     .end((err, res) => {
       if (err) {
         throw err;
